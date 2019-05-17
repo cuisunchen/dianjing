@@ -1,0 +1,23 @@
+export default {
+    userInfo: "/user/userInfo",
+    generatorCode: process.env.NODE_ENV == 'production' ? "/prod/api/user/generator-code" : "/api/user/generator-code",
+    coinInfo: "/api/user/coin-info",
+    login: "/user/login",
+    register: "/user/register",
+    setDrawingPassword: "/user/setDrawingPassword",
+    editPassword: "/user/editPassword",
+    signOut: "/user/signOut",
+    editNickName: "/user/editNickName",
+    getListPhoto: "/user/getListPhoto",
+    editUserImage: "/user/editUserImage",
+    bankList: "/withdrawCash/bankList",
+    withdrawCash: "/withdrawCash/withdrawCash",
+    bindBank: "/user/bindBank",
+    getPayType: "/charge/getPayType",
+    toChargeNew: "/charge/toChargeNew",
+    comPaySubmit: "/charge/comPaySubmit",
+    getPtGamesList: "/home/getPtGamesList",
+    forwardName: "/thirdGames/forwardName",
+    freeGetMoneyStatus: "/user/freeGetMoneyStatus",
+    freeGetMoney: "/user/freeGetMoney"
+}

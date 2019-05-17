@@ -1,0 +1,115 @@
+@import "./varible.less";
+// 背景图片
+.bg-image(@url) {
+    // background-image: url("@{url}.png");
+    background-image:~"url(@{url}.png)";
+    background-repeat: no-repeat;
+    @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
+      background-image: ~"url(@{url}@2x.png)";
+      background-repeat: no-repeat;
+    }
+    @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
+      background-image: ~"url(@{url}@3x.png)";
+      background-repeat: no-repeat;
+    }
+}
+
+@base_color: #202020;
+
+
+/*
+less文件中定义的函数
+Animation 动画 
+@animation-name规定需要绑定到选择器的 keyframe 名称
+@animation-duration规定完成动画所花费的时间，以秒或毫秒计,默认是 0。
+@animation-timing-function规定动画的速度曲线。默认是 "ease"。
+@animation-delay规定在动画开始之前的延迟。默认是 0。
+@animation-iteration-count规定动画应该播放的次数。默认是 1。
+@animation-direction规定是否应该轮流反向播放动画。默认是 "normal"。
+.my_animation{
+   .animation(mykeyframes,5s,linear,2s,infinite,normal);
+}
+*/
+.scale(@fx,@fy,@tx,@ty,@name){   //声明一个动画函数，只需要写一个函数就可以到处调用了
+  @keyframes @name
+  {
+    from {
+       transform:scale(@tx,@ty);
+    }
+    to {
+      transform:scale(@fx,@fy,);
+    }
+  }
+}
+.scale(0.8,0.8,1,1,scale);
+
+/* 渐变边框 */
+// .gradient-border{
+//     border: 1px solid;
+//     border-image: -webkit-linear-gradient(to right, #23F8F8, #8A75FF) 10 20;
+//     border-image: -moz-linear-gradient(to right, #23F8F8, #8A75FF) 10 20;
+//     border-image: linear-gradient(to right, #23F8F8, #8A75FF) 10 20;
+// }
+
+ /* 渐变文本 */
+// .gradient-text{
+//   background-image:-webkit-linear-gradient(right,#23F8F8 0%, #8A75FF 100%); 
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+// }
+
+.clearFloat{
+  &::after{
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+
+.small-lightBlack-txt{
+  font-family:'PingFang-SC-Bold';
+  color:@color_txt_lightBlack;
+  font-size: 12px;
+}
+
+.eg-button{
+  background: #202020;
+  color:#6C6C6C;
+  box-shadow:0px 5px 10px 0px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  &.gradient-border{
+    border: 1px solid;
+    border-image: linear-gradient(to right, #23F8F8, #8A75FF) 10 20;
+    box-shadow:0px 4px 8px 0px rgba(47,234,249,0.8);
+    color:#ffffff;
+  }
+}
+
+.eg-input{
+  background: #202020;
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-family: "PingFang SC", 'PingFangHK-Medium', "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+  font-size: 15px;
+  padding-left: 20px;
+  letter-spacing: -0.36px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  &.focus{
+    background-color: #FFFFFF;
+  }
+}
+.eg-input::placeholder{
+  color: #6C6C6C;
+  font-size: 15px;
+}
